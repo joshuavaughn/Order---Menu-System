@@ -1,6 +1,6 @@
 
 const fs = require ('fs')
-const theSheet = require ('../../utils/sheet')
+const theSheet = require ('../../utils/gSheetAuth')
 
 const getMenu = async (req, res) => {
 

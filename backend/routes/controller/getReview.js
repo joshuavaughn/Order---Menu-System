@@ -1,4 +1,4 @@
-const theSheet = require ('../../utils/sheet')
+const theSheet = require ('../../utils/gSheetAuth')
 
 const getReview = async (req,res) => {
     const {id} = req.params;

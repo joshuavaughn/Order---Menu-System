@@ -1,4 +1,4 @@
-const theSheet = require ('../../utils/sheet')
+const theSheet = require ('../../utils/gSheetAuth')
 
 const getCheckout = async (req, res) => {
     // const { firstName, lastName } = req.body; 
