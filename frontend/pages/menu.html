@@ -1,11 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
 </head>
+
 <body>
-    Menu
+    <!-- navbar -->
+    <section>
+        <nav class="navbar navbar-expand-lg bg-danger">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-wrap text-light" href="/frontend/index.html">Andys Dinakdakan &
+                    Sisig Lechon</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="/frontend/pages/menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="https://www.facebook.com/andy.bernardo.50"
+                                target="_blank">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- menu -->
+    <div class="container-fluid p-0">
+        <img src="/frontend/sources/BusinessPoster.png" class="img-fluid" alt="..." style="width: 100vw; height: 30vh; object-fit: cover;">
+    </div>
+
+    <section class="container-fluid p-5">
+        <div class="row">
+            <div class="col-10 d-flex justify-content-between flex-wrap gap-3" id="menu-items">
+                <div class="card p-2" style="width: 17rem;">
+                    <img src="https://lh3.google.com/u/0/d/1cc4aoxPYlUBvs90EuL3T6USZU10ZBL9w=w1920-h945-iv1"
+                        class="card-img-top" alt="..." style="height: 200px; width: 255px; object-fit: cover;">
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title">Sisig Lechon</h5>
+                        <p class="card-text">$150 - per tub</p>
+                    </div>
+                </div>
+                <div class="card p-2" style="width: 17rem;">
+                    <img src="https://placehold.co/250x280" class="card-img-top" alt="..."
+                        style="height: 200px; width: 255px; object-fit: cover;">
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title">Sisig Lechon</h5>
+                        <p class="card-text">$150 - per tub</p>
+                    </div>
+                </div>
+                <div class="card p-2" style="width: 17rem;">
+                    <img src="https://placehold.co/250x280" class="card-img-top" alt="..."
+                        style="height: 200px; width: 255px; object-fit: cover;">
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title">Sisig Lechon</h5>
+                        <p class="card-text">$150 - per tub</p>
+                    </div>
+                </div>
+                <div class="card p-2" style="width: 17rem;">
+                    <img src="https://placehold.co/250x280" class="card-img-top" alt="..."
+                        style="height: 200px; width: 255px; object-fit: cover;">
+                    <div class="card-body text-center p-2">
+                        <h5 class="card-title">Sisig Lechon</h5>
+                        <p class="card-text">$150 - per tub</p>
+                    </div>
+                </div>
+
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <img src="https://placehold.co/250x280" alt="">
+                <!-- <script>
+                    const menuItmes = document.querySelector('#menuItems');
+                    const newDiv = document.createElement('div');
+                    for (let i = 0; i < 10; i++) {
+                        newDiv.innerHTML = `
+                        <img src="https://placehold.co/300x300" alt="">
+                        `
+                        menuItmes.appendChild(newDiv);
+                    }
+                </script> -->
+            </div>
+            <div class="col-2">
+                <div class="list-group mb-3">
+                    <button type="button" class="list-group-item list-group-item-dark list-group-item-action active"
+                        aria-current="true">
+                        Categories
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action">Chicken</button>
+                    <button type="button" class="list-group-item list-group-item-action">Pork</button>
+                    <button type="button" class="list-group-item list-group-item-action">Seafood</button>
+                    <button type="button" class="list-group-item list-group-item-action">Pancit</button>
+                </div>
+                <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-dark list-group-item-action active"
+                        aria-current="true">
+                        Reccomemded Ulam
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action">Sisig Lechon</button>
+                    <button type="button" class="list-group-item list-group-item-action">Dinakdakan</button>
+                    <button type="button" class="list-group-item list-group-item-action">Cordon Bleu</button>
+                    <button type="button" class="list-group-item list-group-item-action">Relyenong Pusit</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-dark text-white text-center p-5">
+        <h1>Thank You</h1>
+        <p>developed by BSIS 3A Students</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
