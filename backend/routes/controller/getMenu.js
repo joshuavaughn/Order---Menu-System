@@ -1,4 +1,3 @@
-
 const fs = require ('fs')
 const theSheet = require ('../../utils/gSheetAuth')
 
@@ -11,7 +10,7 @@ const getMenu = async (req, res) => {
         range: 'Menu!A1:G49', //hardcoded fix it
     });
 
-    fs.writeFile('./menu.json', JSON.stringify(sheetData.data, null, 2), error => {
+    fs.writeFile('./public/menu.json', JSON.stringify(sheetData.data, null, 2), error => {
         if (error) {
             console.log(error);
             res.status(500).json({successful:false, msg:`Failed to write menu.json`});
