@@ -22,7 +22,7 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="pages/menu.html?category=Everything&bundle=">Menu</a>
+                            <a class="nav-link text-light" href="pages/menu.html?category=Everything&section=">Menu</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="https://www.facebook.com/andy.bernardo.50"
@@ -97,8 +97,7 @@
                         </div>
                     </div>
                     <div class="row pt-3">
-                        <button class="btn btn-light fw-bold" type="button"><a href="#how-to-order"
-                                style="text-decoration: none; color:black;">How to Order?</a></button>
+                            <a href="#how-to-order" style="text-decoration: none; color:black;" class="btn btn-light fw-bold">How to Order?</a>
                     </div>
                 </div>
             </div>
@@ -137,25 +136,22 @@
     <!-- categories -->
     <section>
         <div class="container p-5 d-flex justify-content-evenly flex-wrap gap-3">
-            <a href="pages/menu.html?category=Pork" class="btn btn-primary" role="button" data-bs-toggle="button">
+            <a href="pages/menu.html?category=Pork&section=" class="btn btn-primary" role="button">
                 <img src="https://placehold.co/250x300" alt="Chicken" class="img-fluid">
                 <h3>Pork</h3>
             </a>
-            <a href="pages/menu.html?category=Chicken" class="btn btn-primary" role="button" data-bs-toggle="button">
+            <a href="pages/menu.html?category=Chicken&section=" class="btn btn-primary" role="button">
                 <img src="https://placehold.co/250x300" alt="Chicken" class="img-fluid">
                 <h3>Chicken</h3>
             </a>
-            <a href="pages/menu.html?category=Seafood" class="btn btn-primary" role="button" data-bs-toggle="button">
+            <a href="pages/menu.html?category=Seafood&section=" class="btn btn-primary" role="button">
                 <img src="https://placehold.co/250x300" alt="Chicken" class="img-fluid">
                 <h3>Seafood</h3>
             </a>
-            <a href="pages/menu.html?category=Pancit" class="btn btn-primary" role="button" data-bs-toggle="button">
+            <a href="pages/menu.html?category=Pancit&section=" class="btn btn-primary" role="button">
                 <img src="https://placehold.co/250x300" alt="Chicken" class="img-fluid">
                 <h3>Pancit</h3>
             </a>
-            <img src="https://placehold.co/250x300" alt="Pork" class="img-fluid">
-            <img src="https://placehold.co/250x300" alt="Seafood" class="img-fluid">
-            <img src="https://placehold.co/250x300" alt="Pancit" class="img-fluid">
         </div>
     </section>
 
@@ -169,15 +165,7 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
 
-    <!-- <script type="module" src="js/main.js"></script> -->
-
-    <!-- <script>
-        import { fetchMenu } from './js/api/menuApi.js';
-
-        console.log (`yay you are in the main.js`);
-
-        fetchMenu();
-    </script> -->
+    <script type="module" src="./js/main.js"></script>
 </body>
 
 </html>

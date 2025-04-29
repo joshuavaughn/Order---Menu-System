@@ -37,7 +37,8 @@
 
     <!-- image header -->
     <div class="container-fluid p-0">
-        <img src="/assets/BusinessPoster.png" class="img-fluid" alt="..." style="width: 100vw; height: 30vh; object-fit: cover;">
+        <img src="/assets/BusinessPoster.png" class="img-fluid" alt="..."
+            style="width: 100vw; height: 30vh; object-fit: cover;">
     </div>
 
     <!-- content -->
@@ -65,20 +66,16 @@
                     <button type="button" class="list-group-item list-group-item-action section">Heavy</button>
                     <button type="button" class="list-group-item list-group-item-action section">All</button>
                 </div>
-                <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block">
-                    <li class="list-group-item active list-group-item-dark" aria-current="true">Top Light Meal</li>
-                    <li class="list-group-item">Sisig Lechon</li>
-                    <li class="list-group-item">Dinakdakan</li>
-                    <li class="list-group-item">Shanghai</li>
-                    <li class="list-group-item">Relyenong Pusit</li>
-                  </ul>
-                  <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block">
-                    <li class="list-group-item active list-group-item-dark" aria-current="true">Top Heavy Meal</li>
-                    <li class="list-group-item">Crispy Pata</li>
-                    <li class="list-group-item">Pork Kaldereta</li>
-                    <li class="list-group-item">Cordon Bleu</li>
-                    <li class="list-group-item">Buttered Shrimp</li>
-                  </ul>
+
+                <!-- bundle guide -->
+                <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block" id="Light-Order">
+                    <li class="list-group-item active list-group-item-dark" aria-current="true">
+                        <h4>Bundle Guide</h4>
+                        <p>Select at least 3 Light Meals</p>
+                    </li>
+                    <!-- <li class="list-group-item">Crispy Pata</li> -->
+
+                </ul>
             </div>
             <!-- menu items -->
             <div class="col-md-10 d-flex justify-content-between flex-wrap gap-3" id="menu-items">
@@ -97,7 +94,7 @@
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
         crossorigin="anonymous"></script>
 
-    <script type="module" src="../js/pages/menu.js"></script>
+    <script type="module" src="../js/pages/selectOrder.js"></script>
     <script src="../js/pages/menuCategory.js"></script>
 
 </body>

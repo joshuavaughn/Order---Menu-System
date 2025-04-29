@@ -14,7 +14,16 @@ const getReview = async (req,res) => {
     const filterData = data.filter(x => x[2] == id);
 
     console.log (filterData);
-    res.status(200).json({successful:true, msg:`Review Data retrieved successfully`});
+
+    // return filterData;
+    // console.log (filterData);
+    // res.status(200).json({successful:true, msg:`Review Data retrieved successfully`});
+
+    res.status(200).json({ 
+        successful: true, 
+        msg: "Review Data retrieved successfully",
+        data: filterData // <-- sending filterData here
+    });
 }
 
 module.exports = getReview;

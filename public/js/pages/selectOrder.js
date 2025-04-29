@@ -23,12 +23,24 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 
     const foodItems = document.querySelectorAll(".food-item");
+    const lightOrder = document.querySelector("#Light-Order");
 
     foodItems.forEach((foodItem) => {   
     foodItem.addEventListener("click", (e) => {
-        const value = foodItem.id;
+
+        const selectedFood = document.createElement("li");
+        selectedFood.id = `${foodItem.id}`;
+        selectedFood.classList.add("list-group-item");
+
+        selectedFood.innerHTML = `
+        ${foodItem.id}
+        `;
+
+        lightOrder.appendChild(selectedFood);
+
+        // const value = foodItem.id;
         
-        window.location.href = `foodItem.html?food=${value}`;
+        // window.location.href = `foodItem.html?food=${value}`;
     })
 })
 });

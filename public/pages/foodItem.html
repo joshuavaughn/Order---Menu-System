@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" </head>
+
+<body>
+    <!-- navbar -->
+    <section>
+        <nav class="navbar navbar-expand-lg bg-danger">
+            <div class="container-fluid">
+                <a class="navbar-brand fw-bold text-wrap text-light" href="../index.html">Andys Dinakdakan &
+                    Sisig Lechon</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+                    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="./menu.html">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="https://www.facebook.com/andy.bernardo.50"
+                                target="_blank">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </section>
+
+    <!-- food item -->
+    <section class="container-fluid p-5">
+        <div class="row">
+            <!-- food item image -->
+            <div class="col-md-4" id="food-image">
+                <!-- <img src="https://placehold.co/450x600" alt="" class="img-fluid" id="food-image"> -->
+            </div>
+            <!-- food item details -->
+            <div class="col-md-8">
+                <!-- header -->
+                <div class="row" id="food-item-header">
+                    <img src="../assets/CircleLogo.png" alt="CircleLogo" class="img-fluid" style="width: 10%;">
+                    <p>Andy's Menu</p>
+                    <hr>
+                </div>
+                <div class="row" id="food-title">
+                    <!-- foodtitle -->
+                </div>
+                <!-- instructions -->
+                <div class="row" id="instructions">
+                    <h4 class="bundle-title">Choose Your Bundle</h4>
+                    <p class="bundle-description">Disclaimer! <strong>Orders cannot be modified once submitted; please
+                            review carefully before checkout.</strong></p>
+                </div>
+                <!-- bundle -->
+                <div class="row">
+                    <div class="col">
+                        <a href="./selectOrder.html?category=Everything&section=" class="btn btn-primary" role="button">
+                            <img src="https://placehold.co/250x300" alt="Chicken" class="img-fluid">
+                            <h3>Light Bundle</h3>
+                        </a>
+                    </div>
+                    <div class="col">
+                        <a href="./selectOrder.html?category=Everything&section=" class="btn btn-primary" role="button">
+                            <img src="https://placehold.co/250x300" alt="Chicken" class="img-fluid">
+                            <h3>Heavy Bundle</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- reviews -->
+    <section class="container-fluid bg-dark-subtle">
+        <div class="row p-5 pb-0 text-center">
+            <h1>Reviews</h1>
+        </div>
+        <div class="row p-5" id="reviews">
+            <!-- reviews -->
+        </div>
+        <div class="row bg-warning p-5">
+            <h2 class="text-center">Write your review!</h2>
+            <form action="/action_page.php" method="get" class="">
+                <label for="customer-name" class="form-label mt-2">Name</label>
+                <input class="form-control" list="datalistOptions" id="customer-name" placeholder="Enter Name Here">
+                <label for="review" class="form-label mt-2">Add Review</label>
+                <input class="form-control" list="datalistOptions" id="customer-review" placeholder="Place Your Review Here">                
+                <label for="customer-rating" class="form-label mt-2">Star Rating</label>
+                <input class="form-control" list="datalistOptions" id="customer-rating" placeholder="Include your rating from 5 start to 1 star">
+                <button class="btn btn-primary mt-3" type="submit">Submit form</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- footer -->
+    <footer class="bg-dark text-white text-center p-5">
+        <h1>Thank You</h1>
+        <p>developed by BSIS 3A Students</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+
+    <script type="module" src="../js/pages/foodItem.js"></script>
+
+</html>
