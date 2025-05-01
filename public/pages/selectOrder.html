@@ -44,8 +44,22 @@
     <!-- content -->
     <section class="container-fluid p-5">
         <div class="row">
+            <!-- menu items -->
+            <div class="col-md-10 d-flex justify-content-between flex-wrap gap-3" id="menu-items">
+                <!-- menu items here -->
+            </div>
             <!-- categories & recommended food -->
             <div class="col-md-2">
+                <div class="row pb-3">
+                    <a href="#how-to-order" style="text-decoration: none; color:rgb(255, 255, 255);"
+                        class="btn btn-light fw-bold bg-danger">Place Order!</a>
+                </div>
+                <!-- bundle guide -->
+                <div id="Bundle-Guide">
+                   
+                </div>
+
+
                 <div class="row list-group mb-3">
                     <button type="button" class="list-group-item list-group-item-dark list-group-item-action active"
                         aria-current="true">
@@ -57,7 +71,7 @@
                     <button type="button" class="list-group-item list-group-item-action category">Pancit</button>
                     <button type="button" class="list-group-item list-group-item-action category">Everything</button>
                 </div>
-                <div class="row list-group mb-3">
+                <div class="row list-group mb-3" id="section-options">
                     <button type="button" class="list-group-item list-group-item-dark list-group-item-action active"
                         aria-current="true">
                         Bundle Section
@@ -66,20 +80,6 @@
                     <button type="button" class="list-group-item list-group-item-action section">Heavy</button>
                     <button type="button" class="list-group-item list-group-item-action section">All</button>
                 </div>
-
-                <!-- bundle guide -->
-                <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block" id="Light-Order">
-                    <li class="list-group-item active list-group-item-dark" aria-current="true">
-                        <h4>Bundle Guide</h4>
-                        <p>Select at least 3 Light Meals</p>
-                    </li>
-                    <!-- <li class="list-group-item">Crispy Pata</li> -->
-
-                </ul>
-            </div>
-            <!-- menu items -->
-            <div class="col-md-10 d-flex justify-content-between flex-wrap gap-3" id="menu-items">
-                <!-- menu items here -->
             </div>
         </div>
     </section>

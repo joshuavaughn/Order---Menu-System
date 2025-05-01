@@ -1,0 +1,45 @@
+export function setOrderTracker(bundle) {
+  const bundleGuide = document.querySelector("#Bundle-Guide");
+  const sectionOptions = document.querySelector("#section-options");
+
+  let toReturn = "";
+
+  if (bundle == "2HM") {
+    bundleGuide.innerHTML = `
+        <!-- bundle guide -->
+        <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block" id="Heavy-Order">
+            <li class="list-group-item active list-group-item-dark" aria-current="true">
+                <h4>Bundle Guide</h4>
+                <p>Select at least 2 Heavy Meals</p>
+            </li>
+        </ul>`;
+        sectionOptions.classList.add("d-none");
+        toReturn = "heavy";
+  } else if (bundle == "3LM") {
+    bundleGuide.innerHTML = `
+        <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block" id="Light-Order">
+            <li class="list-group-item active list-group-item-dark" aria-current="true">
+            <h4>Bundle Guide</h4>
+            <p>Select at least 3 Light Meals</p>
+        </li>`;
+        sectionOptions.classList.add("d-none");
+        toReturn = "light";
+  } else if (bundle == "2L1H") {
+    bundleGuide.innerHTML = `
+        <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block" id="Light-Order">
+            <li class="list-group-item active list-group-item-dark" aria-current="true">
+            <h4>Bundle Guide</h4>
+            <p>Select at least 2 Light Meals</p>
+        </li>
+        </ul>
+        <!-- bundle guide -->
+        <ul class="row list-group mb-3 d-none d-xl-block d-lg-block d-md-block" id="Heavy-Order">
+            <li class="list-group-item active list-group-item-dark" aria-current="true">
+                <h4>Bundle Guide</h4>
+                <p>Select at least 1 Heavy Meals</p>
+            </li>
+        </ul>`;
+  }
+
+  return toReturn;
+}

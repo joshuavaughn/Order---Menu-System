@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const filteredData = filterThis(menu, category, section);
 
-    filteredData.forEach((menuItem) => {
-      const menuCard = createMenuItemCard(menuItem);
+    filteredData.forEach((menuItem, index) => {
+      const menuCard = createMenuItemCard(menuItem, index);
       menuContainer.appendChild(menuCard);
     });
 
@@ -25,9 +25,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     foodItems.forEach((foodItem) => {
       foodItem.addEventListener("click", (e) => {
         const value = foodItem.id;
-        const section = checkSection(menu, value);
+        const index = value[5];
+        
+        const section = checkSection(menu, index); 
 
-        window.location.href = `foodItem.html?food=${value}&section=${section}`;
+        window.location.href = `foodItem.html?food=${menu[index].name}&section=${section}`;
       });
     });
   } catch (error) {
