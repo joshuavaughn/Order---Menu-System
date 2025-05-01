@@ -1,4 +1,4 @@
-export async function fetchMenu (index) {    
+export async function fetchReview (index) {    
     const baseUrl = `http://localhost:3000/api/reviews/${index}`;
 
     const res = await fetch (baseUrl, 
