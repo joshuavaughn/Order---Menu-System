@@ -5,6 +5,12 @@ export function filterThis (menu, category, section, name) {
         filteredData = menu.filter (item => {
             return item.name === name;
         })
+    } else if (!section == "") {
+        const newSection = section.toLowerCase();
+    
+        filteredData =  menu.filter(item => {
+            return item.section === newSection;
+        });
     } else if (category == 'Everything') {
         return (menu);
     } else {    
