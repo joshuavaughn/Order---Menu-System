@@ -13,10 +13,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const menu = await fetchJson();
 
-    const filteredData = filterThis(menu, category, section);
+    const filteredData = filterThis(menu, category, section); 
 
-    filteredData.forEach((menuItem, index) => {
-      const menuCard = createMenuItemCard(menuItem, index);
+    filteredData.forEach((menuItem) => {
+      const menuCard = createMenuItemCard(menuItem);
       menuContainer.appendChild(menuCard);
     });
 
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     foodItems.forEach((foodItem) => {
       foodItem.addEventListener("click", (e) => {
         const value = foodItem.id;
-        const index = value[5];
+        const index = value.slice(5);
         
         const section = checkSection(menu, index); 
 

@@ -9,7 +9,7 @@ export async function fetchJson () {
         section: row[2],
         detail: row[5],
         image: row[6],
-        id: row[0]
+        id: parseInt(row[0], 10) - 1
     }));
   }
   

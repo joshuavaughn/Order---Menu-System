@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const filteredData = filterThis(menu, category, chosenBundle);
 
+    // console.log(filteredData);
+
     filteredData.forEach((menuItem, index) => {
       const menuCard = createMenuItemCard(menuItem, index);
       menuContainer.appendChild(menuCard);
@@ -35,7 +37,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     foodItems.forEach((foodItem) => {
       foodItem.addEventListener("click", (e) => {
         const value = foodItem.id;
-        const index = value[5];
+        const index = value.slice(5);
         
         const selectedFood = document.createElement("li");
         selectedFood.id = `${foodItem.id}`;
