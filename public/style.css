@@ -1,0 +1,25 @@
+.category-card {
+    background-color: #ffc107; /* Change this to any color you like */
+    border-radius: 15px;
+    transition: transform 0.2s ease;
+  }
+
+  .category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+
+  .category-card img {
+    width: 200px;
+    height: auto;
+  }
+
+  .category-card .card-body {
+    padding: 1rem;
+  }
+
+  .category-text {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: black;
+  }
