@@ -35,31 +35,31 @@
         </nav>
     </section>
 
-    <!-- image header -->
-    <div class="container-fluid p-0">
-        <img src="/assets/BusinessPoster.png" class="img-fluid" alt="..."
-            style="width: 100vw; height: 30vh; object-fit: cover;">
-    </div>
-
-    <!-- content -->
     <section class="container-fluid p-5">
         <div class="row">
-            <!-- menu items -->
-            <div class="col-md-10 d-flex justify-content-between flex-wrap gap-3" id="menu-items">
+            <!-- //menu -->
+            <div class="col-md-9 d-flex justify-content-between flex-wrap gap-3" id="menu-items">
                 <!-- menu items here -->
             </div>
-            <!-- categories & recommended food -->
-            <div class="col-md-2">
+            <div class="col-md-3">
+                <!-- //place order -->
                 <div class="row pb-3">
                     <a href="#how-to-order" style="text-decoration: none; color:rgb(255, 255, 255);"
                         class="btn btn-light fw-bold bg-danger">Place Order!</a>
                 </div>
-                <!-- bundle guide -->
-                <div id="Bundle-Guide">
-                   
+
+                <!-- //order tracker -->
+                <div class="row-fluid" id="order-tracker">
+                    <!-- order tracker here -->
                 </div>
 
+                <!-- //notes -->
+                <div class="row mb-3">
+                    <label for="order-notes" class="form-label">Order Notes</label>
+                    <textarea class="form-control" id="order-notes" rows="3"></textarea>
+                </div>
 
+                <!-- //category for filter -->
                 <div class="row list-group mb-3">
                     <button type="button" class="list-group-item list-group-item-dark list-group-item-action active"
                         aria-current="true">
@@ -71,7 +71,7 @@
                     <button type="button" class="list-group-item list-group-item-action category">Pancit</button>
                     <button type="button" class="list-group-item list-group-item-action category">Everything</button>
                 </div>
-                <div class="row list-group mb-3" id="section-options">
+                <div class="row list-group mb-3" id="bundle-section">
                     <button type="button" class="list-group-item list-group-item-dark list-group-item-action active"
                         aria-current="true">
                         Bundle Section
@@ -95,7 +95,7 @@
         crossorigin="anonymous"></script>
 
     <script type="module" src="../js/pages/selectOrder.js"></script>
-    <script src="../js/pages/menuCategory.js"></script>
+    <script src="../js/pages/menuFilter.js"></script>
 
 </body>
 

@@ -10,10 +10,20 @@ document.addEventListener("DOMContentLoaded", async () => {
   const category = params.get("category");
   const section = params.get("section");
 
+  let filteredData = [];
+
   try {
     const menu = await fetchJson();
 
-    const filteredData = filterThis(menu, category, section); 
+    if (category != "Everything") {
+      filteredData = filterThis(menu, category, section, "", bundle);
+    } else {
+      filteredData = menu;
+    }
+
+    console.log(filteredData);
+
+    // const filteredData = filterThis(menu, category, section);   //sets what is the selected filter (category & section)
 
     filteredData.forEach((menuItem) => {
       const menuCard = createMenuItemCard(menuItem);

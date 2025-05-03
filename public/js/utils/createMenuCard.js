@@ -4,8 +4,8 @@ export function createMenuItemCard(item) {
   card.classList.add("p-2");
   card.classList.add("food-item");
   card.id = `food-${item.id}`;
-  card.style.width = "17rem";
-  card.style.height = "19rem";
+  card.style.width = "15rem";
+  card.style.minHeight = "17rem";
 
   card.innerHTML = `
     <img src="${item.image}" class="card-img-top img-fluid" alt="Food-Image" style="height: 200px; width: 255px; object-fit: cover;">

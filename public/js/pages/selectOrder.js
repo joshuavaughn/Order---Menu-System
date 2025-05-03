@@ -1,59 +1,76 @@
-import { createMenuItemCard } from "../utils/createMenuCard.js";
-import { filterThis } from "../utils/filter.js";
 import { fetchJson } from "../utils/fetchJson.js";
-import { checkSection } from "../utils/checkSection.js";
-import { setOrderTracker } from "../utils/setOrderTracker.js"
+import { filterThis } from "../utils/filter.js";
+import { createMenuItemCard } from "../utils/createMenuCard.js";
+import { setOrderTracker } from "../utils/setOrderTracker.js";
+import { displayOrderItems } from '../utils/displayOrderItems.js'
+import { checkSection } from '../utils/checkSection.js'
 
 document.addEventListener("DOMContentLoaded", async () => {
-  const menuContainer = document.querySelector("#menu-items");
-
   const params = new URLSearchParams(window.location.search);
   const category = params.get("category");
   const section = params.get("section");
   const bundle = params.get("bundle");
 
+  const menuContainer = document.querySelector("#menu-items");
+
+  let orderItems = [];
+
   try {
-    console.log(bundle);
-    const chosenBundle = setOrderTracker(bundle);
-
-    console.log(`chosenBundle = ${chosenBundle}`);
-
     const menu = await fetchJson();
 
-    const filteredData = filterThis(menu, category, chosenBundle);
+    //populate menu items
+    const filteredData = filterThis(menu, category, section, "", bundle);
 
-    // console.log(filteredData);
-
-    filteredData.forEach((menuItem, index) => {
-      const menuCard = createMenuItemCard(menuItem, index);
+    filteredData.forEach((menuItem) => {
+      const menuCard = createMenuItemCard(menuItem);
       menuContainer.appendChild(menuCard);
     });
+    //add an order tracker
+    const chosenBundle = setOrderTracker(bundle);
 
-    const lightOrder = document.querySelector("#Light-Order");
-    const heavyOrder = document.querySelector("#Heavy-Order");
+    //check for any chosen order
+    const foodItem = document.querySelectorAll(".food-item");
+    foodItem.forEach((item) => {
+      item.addEventListener("click", () => {
 
-    const foodItems = document.querySelectorAll(".food-item");
-
-    foodItems.forEach((foodItem) => {
-      foodItem.addEventListener("click", (e) => {
-        const value = foodItem.id;
+        const value = item.id;
         const index = value.slice(5);
-        
-        const selectedFood = document.createElement("li");
-        selectedFood.id = `${foodItem.id}`;
-        selectedFood.classList.add("list-group-item");
-        selectedFood.innerHTML = `
-        ${menu[index].name}
-        `;
 
-        const section = checkSection(menu, index); 
-        if (section == "light") {
-            lightOrder.appendChild(selectedFood);
-        } else if (section =="heavy") {
-            heavyOrder.appendChild(selectedFood);
-        } else {
-            console.log (`cant append`);
+        //make an array of all the selected food
+        let newItem = [index, 1];
+
+        let itemFound = false;
+        orderItems.forEach((item) => {
+          if (item[0] === newItem[0]) {
+            item[1] += newItem[1];
+            itemFound = true;
+          }
+        });
+
+        if (!itemFound) {
+          orderItems.push(newItem);
         }
+        
+        console.log(`orderItems`);
+        console.log(orderItems);
+
+        const section = checkSection(menu, index);
+
+        displayOrderItems(menu, index, orderItems, section);
+
+        // const lightOrder = document.querySelector("#Light-Order");
+        // const heavyOrder = document.querySelector("#Heavy-Order");
+
+        // const lightItems = lightOrder.querySelectorAll("li");
+
+
+        // console.log(lightOrder);
+        // console.log(heavyOrder);
+
+        // console.log(`light orders`);
+        // lightItems.forEach(order => {
+        //     console.log(order);
+        // });
 
       });
     });
