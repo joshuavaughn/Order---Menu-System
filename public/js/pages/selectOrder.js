@@ -35,9 +35,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         const value = item.id;
         const index = value.slice(5);
+        const section = checkSection(menu, index);
 
         //make an array of all the selected food
-        let newItem = [index, 1];
+        let newItem = [index, 1, section];
 
         let itemFound = false;
         orderItems.forEach((item) => {
@@ -51,27 +52,7 @@ document.addEventListener("DOMContentLoaded", async () => {
           orderItems.push(newItem);
         }
         
-        console.log(`orderItems`);
-        console.log(orderItems);
-
-        const section = checkSection(menu, index);
-
-        displayOrderItems(menu, index, orderItems, section);
-
-        // const lightOrder = document.querySelector("#Light-Order");
-        // const heavyOrder = document.querySelector("#Heavy-Order");
-
-        // const lightItems = lightOrder.querySelectorAll("li");
-
-
-        // console.log(lightOrder);
-        // console.log(heavyOrder);
-
-        // console.log(`light orders`);
-        // lightItems.forEach(order => {
-        //     console.log(order);
-        // });
-
+        displayOrderItems(menu, index, orderItems, bundle);
       });
     });
   } catch (error) {

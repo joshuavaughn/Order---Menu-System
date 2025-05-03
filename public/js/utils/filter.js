@@ -45,6 +45,8 @@ export function filterThis (menu, category, section, name, bundle) {
                 return data.section === "light";
             })
         }
+    } else if (bundle == '2L1H') {
+        return menu;
     }
     
     return filteredData;

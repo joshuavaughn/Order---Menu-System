@@ -1,43 +1,48 @@
 import { createOrderItemList } from "../utils/createOrderItemList.js"
 
-export function displayOrderItems (menu, index, orderItems, section) {
+export function displayOrderItems (menu, index, orderItems, bundle) {
     const lightOrder = document.querySelector("#Light-Order");
     const heavyOrder = document.querySelector("#Heavy-Order");
 
-    
-    const order = orderItems.filter(data => {
-        return data[0] === index;
-    })
-
-    console.log (`order`);
-    console.log (order);
-    console.log (order[0][1]);
-
-    const liElement = createOrderItemList(menu[index].name, order[0][1]);
-
     //remove existing list
-    if (section == "light") {
+    if (bundle == "3LM") {
         const lightItems = lightOrder.querySelectorAll("li");
         lightItems.forEach((order, index) => {
             if (index !== 0) {
                 order.remove();
             }
         });    
-        lightOrder.appendChild(liElement);
-    } else {
+    } else if (bundle == "2HM") {
         const heavyItems = heavyOrder.querySelectorAll("li");
-        heavyItems.forEach((order) => {
-            console.log(order);
+        heavyItems.forEach((order, index) => {
+            if (index !== 0) {
+                order.remove();
+            }
         });   
-        heavyOrder.appendChild(liElement);
+    } else if (bundle == "2L1H"){
+        const lightItems = lightOrder.querySelectorAll("li");
+        lightItems.forEach((order, index) => {
+            if (index !== 0) {
+                order.remove();
+            }
+        });    
+        const heavyItems = heavyOrder.querySelectorAll("li");
+        heavyItems.forEach((order, index) => {
+            if (index !== 0) {
+                order.remove();
+            }
+        });   
     }
 
-    console.log(lightOrder);
-    console.log(heavyOrder);
+    //write list
+    orderItems.forEach(item => {
+        const liElement = createOrderItemList(menu[item[0]].name, item[1]);
 
-    console.log(`orderItems`);
-    console.log(orderItems);
+        if (item[2] == "light") {
+            lightOrder.appendChild(liElement);
+        } else if (item[2] == "heavy") {
+            heavyOrder.appendChild(liElement);
+        }
+    });
 
-
-    // console.log (menu[index].name);
 }
