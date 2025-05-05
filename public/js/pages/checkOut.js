@@ -1,20 +1,13 @@
-const allForms = document.querySelectorAll("form.needs-validation");
+import { validateForm } from "../utils/vallidateForm.js"
+
 const submitButton = document.querySelector('button[type="submit"]');
 
-if (submitButton) {
-  submitButton.addEventListener("click", (event) => {
-    let isValid = true;
+submitButton.addEventListener("click", (event) =>{
+    const isFormValid = validateForm()
 
-    allForms.forEach((form) => {
-      if (!form.checkValidity()) {
-        isValid = false;
-        form.classList.add("was-validated");
-      }
-    });
-
-    if (!isValid) {
-      event.preventDefault();
-      event.stopPropagation();
+    if (!isFormValid) {
+      event.preventDefault()
+      event.stopPropagation()
     }
-  });
-}
+  
+})
