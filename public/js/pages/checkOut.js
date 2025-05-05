@@ -1,16 +1,20 @@
-const forms = document.querySelectorAll(".needs-validation");
+const allForms = document.querySelectorAll("form.needs-validation");
+const submitButton = document.querySelector('button[type="submit"]');
 
-Array.from(forms).forEach((form) => {
-  form.addEventListener(
-    "submit",
-    (event) => {
+if (submitButton) {
+  submitButton.addEventListener("click", (event) => {
+    let isValid = true;
+
+    allForms.forEach((form) => {
       if (!form.checkValidity()) {
-        event.preventDefault();
-        event.stopPropagation();
+        isValid = false;
+        form.classList.add("was-validated");
       }
+    });
 
-      form.classList.add("was-validated");
-    },
-    false
-  );
-});
+    if (!isValid) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+  });
+}
