@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   try {
     const menu = await fetchJson();
 
-    if (category != "Everything") {
-      filteredData = filterThis(menu, category, section, "", bundle);
-    } else {
+    if (category == "Everything" && section == "") {
       filteredData = menu;
+    } else {
+      filteredData = filterThis(menu, category, section);
     }
 
     console.log(filteredData);

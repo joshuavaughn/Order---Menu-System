@@ -1,8 +1,11 @@
 export function filterThis (menu, category, section, name, bundle) {
     let filteredData = [];
+    
+    console.log(`filter`)
 
     //checks for category
     if (category != '' && category != 'Everything') {
+        console.log(`category`)
         filteredData = menu.filter(data => {
             return data.category == category;
         })
@@ -14,6 +17,14 @@ export function filterThis (menu, category, section, name, bundle) {
     
         filteredData =  menu.filter(item => {
             return item.category === category && item.section === newSection;
+        });
+    }
+    
+    if (category == "Everything" && section != "") {
+        const newSection = section.toLowerCase();
+
+        filteredData =  menu.filter(item => {
+            return item.section === newSection;
         });
     }
 
@@ -45,8 +56,6 @@ export function filterThis (menu, category, section, name, bundle) {
                 return data.section === "light";
             })
         }
-    } else if (bundle == '2L1H') {
-        return menu;
     }
     
     return filteredData;
