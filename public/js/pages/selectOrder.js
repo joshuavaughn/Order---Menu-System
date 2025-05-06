@@ -97,9 +97,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
         sessionStorage.setItem("toStore", JSON.stringify(toStore));
 
-
       });
-
 
     });
   } catch (error) {

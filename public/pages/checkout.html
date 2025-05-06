@@ -38,103 +38,113 @@
     <section class="container-fluid p-5">
         <!-- name -->
         <form class="row needs-validation pb-4 gap-2" novalidate>
-            <div class="col-md-6">
-                <label for="fname" class="form-label">First name</label>
-                <input type="text" class="form-control" id="fname" placeholder="Enter your first name" required>
-                <div class="invalid-feedback">
-                    Looks good!
-                </div>
-            </div>
-            <div class="col-md-5">
-                <label for="lname" class="form-label">Last name</label>
-                <input type="text" class="form-control" id="lname" placeholder="Enter your last name" required>
-                <div class="invalid-feedback">
-                    Looks good!
-                </div>
-            </div>
-        </form>
-        <!-- address -->
-        <form class="row needs-validation pb-4 gap-2" novalidate>
-            <div class="col-md-4">
-                <label for="houseNum" class="form-label">Street & House Number</label>
-                <input type="text" class="form-control" id="houseNum" placeholder="Enter your street & house number" required>
-                <div class="invalid-feedback">
-                    Please enter your street or house number.
-                </div>
-            </div>
-            <div class="col-md-4">
-                <label for="city" class="form-label">City</label>
-                <select type="text" class="form-select" id="city" required>
-                    <option selected disabled value="">Choose...</option>
-                    <option>Pasay</option>
-                    <option>Makati</option>
-                </select>
-                <div class="invalid-feedback">
-                    Please provide a valid city.
-                </div>
-            </div>
-            <div class="col-md-3">
-                <label for="barangay" class="form-label">Barangay</label>
-                <input type="text" class="form-control" id="barangay" placeholder="Enter your barangay" required>
-                <div class="invalid-feedback">
-                    Please enter your barangay.
-                </div>
-            </div>
-        </form>
-        <!-- delivery time and date -->
-        <form class="row needs-validation pb-4 gap-2" novalidate>
-            <div class="col-md-6">
-                <label for="date" class="form-label">Date</label>
-                <input type="date" class="form-control" id="date" required>
-                <div class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
-            </div>
-            <div class="col-md-5">
-                <label for="time" class="form-label">Time</label>
-                <input type="time" class="form-control" id="time" required>
-                <div class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
-            </div>
-        </form>
-        <!-- contact -->
-        <form class="row needs-validation pb-4 gap-2" novalidate>
-            <div class="col-md-5">
-                <label for="validationCustomUsername" class="form-label">Phone Number</label>
-                <div class="input-group has-validation">
-                    <span class="input-group-text" id="inputGroupPrepend">+63</span>
-                    <input type="text" class="form-control" id="validationCustomUsername"
-                        aria-describedby="inputGroupPrepend" required>
+            <!-- name -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="fname" class="form-label">First name</label>
+                    <input type="text" class="form-control" id="fname" placeholder="Enter your first name" required>
                     <div class="invalid-feedback">
-                        Please enter a valid PH number (e.g. 9123456789).
+                        Please enter your First Name!
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="lname" class="form-label">Last name</label>
+                    <input type="text" class="form-control" id="lname" placeholder="Enter your last name" required>
+                    <div class="invalid-feedback">
+                        Please enter your Last Name!
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <label for="fbAcc" class="form-label">Facebook Account</label>
-                <input type="text" class="form-control" id="fbAcc" required>
-                <div class="invalid-feedback">
-                    Please provide a valid zip.
-                </div>
-            </div>
-        </form>
-        <!-- validation & submit -->
-        <form class="row needs-validation pb-4 gap-2" novalidate>
-            <div class="col-12">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
-                    <label class="form-check-label" for="invalidCheck">
-                        Agree to terms and conditions
-                    </label>
+            <!-- address -->
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="houseNum" class="form-label">Street & House Number</label>
+                    <input type="text" class="form-control" id="houseNum" placeholder="Enter your street & house number" required>
                     <div class="invalid-feedback">
-                        You must agree before submitting.
+                        Please enter your street and house number.
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <label for="city" class="form-label">City</label>
+                    <select type="text" class="form-select" id="city" required>
+                        <option selected disabled value="">Pick your City</option>
+                        <!-- add cities -->
+                        <option>Pasay</option>
+                        <option>Makati</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a city.
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <label for="barangay" class="form-label">Barangay</label>
+                    <select type="text" class="form-select" id="barangay" required>
+                        <option selected disabled value="">Pick your Barangay</option>
+                        <!-- add cities -->
+                    </select>
+                    <div class="invalid-feedback">
+                        Please enter your barangay.
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <button class="btn btn-primary" type="submit">Submit form</button>
+            <!-- delivery time and date -->
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="date" class="form-label">Date</label>
+                    <input type="date" class="form-control" id="date" required>
+                    <div class="invalid-feedback">
+                        Delivery Date should be 2 Days Ahead.
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <label for="time" class="form-label">Time</label>
+                    <input type="time" class="form-control" id="time" required>
+                    <div class="invalid-feedback">
+                        Please provide a Delivery Time.
+                    </div>
+                </div>
             </div>
+            <!-- contact -->
+             <div class="row">
+                <div class="col-md-5">
+                    <label for="phoneNum" class="form-label">Phone Number</label>
+                    <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">+63</span>
+                        <input type="text" class="form-control" id="phoneNum"
+                            aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid PH number (e.g. 9123456789).
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="fbAcc" class="form-label">Facebook Account</label>
+                    <input type="text" class="form-control" id="fbAcc" required>
+                    <div class="invalid-feedback">
+                        Please provide a your facebook account.
+                    </div>
+                </div>
+             </div>
+             <!-- validation -->
+             <div class="row">
+                <div class="col-12">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                            Agree to terms and conditions
+                        </label>
+                        <div class="invalid-feedback">
+                            You must agree before submitting.
+                        </div>
+                    </div>
+                </div>
+             </div>
+             <!-- submit -->
+             <div class="row">
+                <div class="col-12">
+                    <button class="btn btn-primary" type="submit">Submit form</button>
+                </div>
+             </div>
         </form>
     </section>
 
