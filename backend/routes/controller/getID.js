@@ -1,11 +1,12 @@
 const theSheet = require ('../../utils/gSheetAuth')
 
-const getFoodID = async (req,res) => {
+const getID = async (req,res) => {
+    const {orderID} = req.params;
     let sheet = await theSheet();
 
     const sheetData = await sheet.spreadsheets.values.get({
         spreadsheetId: process.env.spreadsheetId,
-        range: 'Order!A'
+        range: `${orderID}!A:A`
     })
 
     const data = sheetData.data.values;
@@ -13,8 +14,8 @@ const getFoodID = async (req,res) => {
     res.status(200).json({ 
         successful: true, 
         msg: "FoodID retrieved successfully",
-        data: data // <-- sending filterData here
+        data: data
     });
 }
 
-module.exports = getFoodID;
+module.exports = getID;

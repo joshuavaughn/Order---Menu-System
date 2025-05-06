@@ -1,7 +1,19 @@
 import { validateForm } from "../utils/vallidateForm.js";
+import { fetchID } from "../api/fetchID.js";
+import { writeOrderItems } from "../api/writeOrderItems.js"
+import { rowNum } from "../api/rowNum.js"
+import { writeCustomer } from "../api/writeCustomer.js"
 
 const submitButton = document.querySelector(".needs-validation");
+const fname = document.querySelector("#fname");
+const lname = document.querySelector("#lname");
+const houseNum = document.querySelector("#houseNum");
 const city = document.querySelector("#city");
+const barangay = document.querySelector("#barangay");
+const date = document.querySelector("#date");
+const time = document.querySelector("#time");
+const phoneNum = document.querySelector("#phoneNum");
+const fbAcc = document.querySelector("#fbAcc");
 
 const orderArray = JSON.parse(sessionStorage.getItem("toStore"));
 
@@ -11,7 +23,7 @@ const barangaysByCity = {
   Makati: ["Barangay A", "Barangay B", "Barangay C"],
 };
 
-submitButton.addEventListener("submit", (event) => {
+submitButton.addEventListener("submit", async (event) => {
   event.preventDefault();
 
   console.log(`submitted`);
@@ -21,21 +33,28 @@ submitButton.addEventListener("submit", (event) => {
   console.log(`orderArray`);
   console.log(orderArray);
 
-  if (!isFormValid) {
-    event.stopPropagation();
-    return;
+  // if (!isFormValid) {
+  //   event.stopPropagation();
+  //   return;
+  // }
+
+  const OrderID = await fetchID("Order");
+  const customerID = await fetchID("Customer");
+  const rowOrderITems = await rowNum("OrderItems");
+  const rowCustomer = await rowNum("Customer");
+
+  console.log(OrderID);
+
+  //write order items
+  for (let i = 0; i < 2; i++) {
+      orderArray[i].forEach(item => {
+        writeOrderItems(OrderID, item[0], item[1], rowOrderITems);
+          console.log(item);
+      });
   }
 
-//write order items
-for (let i = 0; i < 2; i++) {
-    orderArray[i].forEach(item => {
-        // writeOrderItems(item[0], item[1]);
-        //need orderID
-        console.log(item);
-    });
-}
-
 //write customer
+writeCustomer(customerID, fname, lname, phoneNum, houseNum, city, barangay, fbAcc, rowCustomer);
 
 
 // write order
