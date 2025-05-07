@@ -93,13 +93,32 @@ document.addEventListener("DOMContentLoaded", async () => {
           targetArray.push([newItem[0], newItem[1]]);
         }
 
-
-
         displayOrderItems(menu, toStore[0], toStore[1], bundle);
 
         sessionStorage.setItem("toStore", JSON.stringify(toStore));
 
       });
+
+const quantity = document.querySelectorAll(".quantity");
+quantity.forEach(item => {
+  item.addEventListener("click", () => {
+    const index = item.id[9];
+    console.log(index);
+    const selectedQuantity = document.querySelector(`#quantity-${index}`);
+    console.log(selectedQuantity);
+
+    if (item.id[0] == "i") {
+      console.log(`increased`);
+      console.log(selectedQuantity.textContent);
+      const incresedQuantity = (selectedQuantity.textContent * 1) + 1;
+      selectedQuantity.textContent = incresedQuantity;
+    } else if (item.id[0] == "d") {
+      const decresedQuantity = (selectedQuantity.textContent * 1) - 1;
+      selectedQuantity.textContent = decresedQuantity;
+    }
+
+  })
+});
 
     });
   } catch (error) {

@@ -17,7 +17,7 @@ const phoneNum = document.querySelector("#phoneNum");
 const fbAcc = document.querySelector("#fbAcc");
 const currentDate = new Date();
 
-const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+const month = String(currentDate.getMonth() + 1).padStart(2, '0');
 const day = String(currentDate.getDate()).padStart(2, '0');
 const year = currentDate.getFullYear();
 
@@ -38,10 +38,10 @@ submitButton.addEventListener("submit", async (event) => {
 
   const isFormValid = validateForm();
 
-  // if (!isFormValid) {
-  //   event.stopPropagation();
-  //   return;
-  // }
+  if (!isFormValid) {
+    event.stopPropagation();
+    return;
+  }
 
   const OrderID = await fetchID("Order");
   const customerID = await fetchID("Customer");
@@ -57,14 +57,11 @@ submitButton.addEventListener("submit", async (event) => {
       }
   }
 
-//write customer
-writeCustomer(customerID, fname.value, lname.value, phoneNum.value, houseNum.value, city.value, barangay.value, fbAcc.value, rowCustomer);
+  //write customer
+  writeCustomer(customerID, fname.value, lname.value, phoneNum.value, houseNum.value, city.value, barangay.value, fbAcc.value, rowCustomer);
 
-console.log(orderArray);
-
-// write order
-writeOrder(OrderID, formattedDate, time.value, date.value, orderArray[2], "pending", customerID, "not paid", "NA", "NA", rowOrder);
-// console.log (OrderID, formattedDate, time.value, date.value, orderArray[2], "pending", customerID, "not paid", "NA", "NA", rowOrder);
+  // write order
+  writeOrder(OrderID, formattedDate, time.value, date.value, orderArray[2], "pending", customerID, "not paid", "NA", "NA", rowOrder);
 
 });
 

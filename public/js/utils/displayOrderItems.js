@@ -35,14 +35,18 @@ export function displayOrderItems (menu, light, heavy, bundle) {
     }
 
     //write list
-    light.forEach(item => {
-        const liElement = createOrderItemList(menu[item[0]].name, item[1]);
-        lightOrder.appendChild(liElement);
-    });
+    if (bundle == "3LM" || bundle == "2L1H") {
+        light.forEach(item => {
+            const liElement = createOrderItemList(menu[item[0]].name, item[1], item[0]);
+            lightOrder.appendChild(liElement);
+        });
+    }
+    if (bundle == "2HM" || bundle == "2L1H") {
+        heavy.forEach(item => {
+            const liElement = createOrderItemList(menu[item[0]].name, item[1], item[0]);
+            heavyOrder.appendChild(liElement);
+        });
+    }
 
-    heavy.forEach(item => {
-        const liElement = createOrderItemList(menu[item[0]].name, item[1]);
-        heavyOrder.appendChild(liElement);
-    });
 
 }
