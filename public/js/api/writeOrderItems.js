@@ -1,25 +1,19 @@
-    export async function writeOrderItems (orderID, foodID, quantity, row) {
-        const baseUrl = `http://localhost:3000/api/write`;
+export async function writeOrderItems(orderID, foodID, quantity, row) {
+  const baseUrl = `http://localhost:3000/api/write`;
 
-        console.log (`params`);
-        console.log (orderID);
-        console.log (foodID);
-        console.log (quantity);
+  console.log(orderID, foodID, quantity, row);
 
-        const res = await fetch(baseUrl, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "data": [
-                    [orderID, foodID, quantity]
-                ],
-                "range": `OrderItems!A${row}:C${row}`
-            })
-        });
+  const res = await fetch(baseUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      data: [[orderID, foodID, quantity]],
+      range: `OrderItems!A${row}:C${row}`,
+    }),
+  });
 
-        const result = await res.json();
-        console.log(result);
-
-    }
+  const result = await res.json();
+  console.log(result);
+}

@@ -11,7 +11,5 @@ export async function rowNum (table) {
         console.log(`Failed to retrieve Review Data`);
     }
 
-    console.log(result);
-
     return result.data.length + 1   ;
 }

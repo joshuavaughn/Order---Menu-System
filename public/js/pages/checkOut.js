@@ -3,6 +3,7 @@ import { fetchID } from "../api/fetchID.js";
 import { writeOrderItems } from "../api/writeOrderItems.js"
 import { rowNum } from "../api/rowNum.js"
 import { writeCustomer } from "../api/writeCustomer.js"
+import { writeOrder } from "../api/writeOrder.js"
 
 const submitButton = document.querySelector(".needs-validation");
 const fname = document.querySelector("#fname");
@@ -14,8 +15,15 @@ const date = document.querySelector("#date");
 const time = document.querySelector("#time");
 const phoneNum = document.querySelector("#phoneNum");
 const fbAcc = document.querySelector("#fbAcc");
+const currentDate = new Date();
 
-const orderArray = JSON.parse(sessionStorage.getItem("toStore"));
+const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+const day = String(currentDate.getDate()).padStart(2, '0');
+const year = currentDate.getFullYear();
+
+const formattedDate = `${year}-${month}-${day}`;
+
+const orderArray = JSON.parse(sessionStorage.getItem("orderArray"));
 
 const barangaysByCity = {
   //populate barangays in each city
@@ -26,12 +34,9 @@ const barangaysByCity = {
 submitButton.addEventListener("submit", async (event) => {
   event.preventDefault();
 
-  console.log(`submitted`);
+  console.log(orderArray);
 
   const isFormValid = validateForm();
-
-  console.log(`orderArray`);
-  console.log(orderArray);
 
   // if (!isFormValid) {
   //   event.stopPropagation();
@@ -40,24 +45,26 @@ submitButton.addEventListener("submit", async (event) => {
 
   const OrderID = await fetchID("Order");
   const customerID = await fetchID("Customer");
-  const rowOrderITems = await rowNum("OrderItems");
   const rowCustomer = await rowNum("Customer");
+  const rowOrder = await rowNum("Order");
 
-  console.log(OrderID);
 
   //write order items
   for (let i = 0; i < 2; i++) {
-      orderArray[i].forEach(item => {
-        writeOrderItems(OrderID, item[0], item[1], rowOrderITems);
-          console.log(item);
-      });
+      for (let j = 0; j < orderArray[i].length; j++) {
+        const rowOrderITems = await rowNum("OrderItems");
+        writeOrderItems(OrderID, orderArray[i][j][0], orderArray[i][j][1], rowOrderITems);
+      }
   }
 
 //write customer
-writeCustomer(customerID, fname, lname, phoneNum, houseNum, city, barangay, fbAcc, rowCustomer);
+writeCustomer(customerID, fname.value, lname.value, phoneNum.value, houseNum.value, city.value, barangay.value, fbAcc.value, rowCustomer);
 
+console.log(orderArray);
 
 // write order
+writeOrder(OrderID, formattedDate, time.value, date.value, orderArray[2], "pending", customerID, "not paid", "NA", "NA", rowOrder);
+// console.log (OrderID, formattedDate, time.value, date.value, orderArray[2], "pending", customerID, "not paid", "NA", "NA", rowOrder);
 
 });
 

@@ -93,6 +93,8 @@ document.addEventListener("DOMContentLoaded", async () => {
           targetArray.push([newItem[0], newItem[1]]);
         }
 
+
+
         displayOrderItems(menu, toStore[0], toStore[1], bundle);
 
         sessionStorage.setItem("toStore", JSON.stringify(toStore));
