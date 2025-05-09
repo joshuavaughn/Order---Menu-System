@@ -3,7 +3,8 @@ import { filterThis } from "../utils/filter.js";
 import { createMenuItemCard } from "../utils/createMenuCard.js";
 import { setOrderTracker } from "../utils/setOrderTracker.js";
 import { displayOrderItems } from "../utils/displayOrderItems.js";
-import { checkSection } from "../utils/checkSection.js";
+import { populateOrderArray } from "../utils/populateOrderArray.js"
+import { addQuantity } from "../utils/addQuantity.js"
 
 document.addEventListener("DOMContentLoaded", async () => {
   const params = new URLSearchParams(window.location.search);
@@ -13,19 +14,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const menuContainer = document.querySelector("#menu-items");
 
-  let orderItems = [];
-  let toStore = []; //light, heavy, note
-  toStore[0] = [];
-  toStore[1] = [];
-  toStore[2] = "";
+  let orderArray = [[], []]; // [0] = light, [1] = heavy
 
   let filteredData = [];
 
-
-  const dis = JSON.parse(sessionStorage.getItem("toStore"));
-
-  console.log(`dis`);
-  console.log(dis);
+  const loadedOrders = JSON.parse(sessionStorage.getItem("orderArray"));
 
   try {
     const menu = await fetchJson();
@@ -39,88 +32,50 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     // const filteredData = filterThis(menu, category, section, "", bundle);
 
-    console.log (filteredData);
-
     filteredData.forEach((menuItem) => {
       const menuCard = createMenuItemCard(menuItem);
       menuContainer.appendChild(menuCard);
     });
+    
     //add an order tracker
     const chosenBundle = setOrderTracker(bundle);
 
-    if (dis != null) {
-      toStore = dis;
-      displayOrderItems(menu, toStore[0], toStore[1], bundle);
+    if (loadedOrders != null) {
+      console.log (`loadedOrders is not null`);
+      orderArray = loadedOrders;
+      displayOrderItems(menu, orderArray[0], orderArray[1], bundle);
     }
 
     //check for any chosen order
     const foodItem = document.querySelectorAll(".food-item");
     foodItem.forEach((item) => {
       item.addEventListener("click", () => {
-        const value = item.id;
-        const index = value.slice(5);
-        const section = checkSection(menu, index);
+        
+        let newArray = populateOrderArray (menu, item, orderArray);
 
-        //make an array of all the selected food
-        let newItem = [index, 1, section];
-
-        let itemFound = false;
-        orderItems.forEach((item) => {
-          if (item[0] === newItem[0]) {
-            item[1] += newItem[1];
-            itemFound = true;
-            newItem[1] = item[1];
-          }
-        });
-
-        if (!itemFound) {
-          orderItems.push(newItem);
-        }
-
-        // Populate toStore[0] (light) or toStore[1] (heavy)
-        const targetArray = newItem[2] === "light" ? toStore[0] : toStore[1];
-
-        let found = false;
-        for (let i = 0; i < targetArray.length; i++) {
-          if (targetArray[i][0] === newItem[0]) {
-            targetArray[i][1] = newItem[1]; // update quantity
-            found = true;
-            break;
-          }
-        }
-
-        if (!found) {
-          targetArray.push([newItem[0], newItem[1]]);
-        }
-
-        displayOrderItems(menu, toStore[0], toStore[1], bundle);
-
-        sessionStorage.setItem("toStore", JSON.stringify(toStore));
+        orderArray = newArray;
+      
+        console.log(orderArray);
+        
+        // Display and store
+        displayOrderItems(menu, orderArray[0], orderArray[1], bundle);
+        sessionStorage.setItem("orderArray", JSON.stringify(orderArray));
 
       });
-
-const quantity = document.querySelectorAll(".quantity");
-quantity.forEach(item => {
-  item.addEventListener("click", () => {
-    const index = item.id[9];
-    console.log(index);
-    const selectedQuantity = document.querySelector(`#quantity-${index}`);
-    console.log(selectedQuantity);
-
-    if (item.id[0] == "i") {
-      console.log(`increased`);
-      console.log(selectedQuantity.textContent);
-      const incresedQuantity = (selectedQuantity.textContent * 1) + 1;
-      selectedQuantity.textContent = incresedQuantity;
-    } else if (item.id[0] == "d") {
-      const decresedQuantity = (selectedQuantity.textContent * 1) - 1;
-      selectedQuantity.textContent = decresedQuantity;
-    }
-
-  })
-});
-
     });
+
+    document.addEventListener("click", (e) => {
+      if (e.target.classList.contains("quantity")) {
+        let newArray = addQuantity(e.target, orderArray);
+    
+        orderArray = newArray;
+    
+        displayOrderItems(menu, orderArray[0], orderArray[1], bundle);
+        sessionStorage.setItem("orderArray", JSON.stringify(orderArray));
+      }
+    });
+
+
   } catch (error) {
     console.log("Failed to load menu:", error);
   }

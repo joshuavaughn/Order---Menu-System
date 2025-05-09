@@ -3,7 +3,7 @@ const orderNotes = document.querySelector("#order-notes");
 
 placeOrder.addEventListener("click", () => {
 
-  const orderArray = JSON.parse(sessionStorage.getItem("toStore"));
+  const orderArray = JSON.parse(sessionStorage.getItem("orderArray"));
 
   const params = new URLSearchParams(window.location.search);
 
@@ -14,43 +14,49 @@ placeOrder.addEventListener("click", () => {
 
     // get light and heavy order quantity
     orderArray[0].forEach(item => {
-        console.log (item);
         lightOrderLength += item[1];
     });
     orderArray[1].forEach(item => {
-        console.log (item);
         heavyOrderLength += item[1];
     });
 
-    console.log(lightOrderLength);
-    console.log(heavyOrderLength);
-
-    console.log(`bundle = ${bundle}`)
+    let validOrder = true;
+    let invalidMessage = "";
 
     if (bundle == "2L1H") {
         if (lightOrderLength < 2) {
-            console.log(`order must be at least 2 light items`);
+            invalidMessage = `Your order must have at least 2 light items`;
+            validOrder = false;
         }
         if (heavyOrderLength < 1) {
-            console.log(`order must be at least 1 heavy item`);
+            invalidMessage = `Your order must have at least 1 heavy item`;
+            validOrder = false;
         }
     } else if (bundle == "3LM") {
         if (lightOrderLength < 3) {
-            console.log(`order must be at least 3 light items`);
+            invalidMessage = `Your order must have at least 3 light items`;
+            validOrder = false;
         }
     } else if (bundle == "2HM") {
         if (heavyOrderLength < 2) {
-            console.log(`order must be at least 2 heavy items`);
+            invalidMessage = `Your order must have at least 2 heavy items`;
+            validOrder = false;
         }
     }
 
-    console.log(orderNotes.value);
     orderArray[2] = orderNotes.value;
-
-    console.log(orderArray);
 
     sessionStorage.setItem("orderArray", JSON.stringify(orderArray));
 
-    window.location.href = `checkout.html`;
+    if (validOrder == true) {
+        console.log(`valid order`);
+        // window.location.href = `checkout.html`;
+    } else {
+        console.log(`invalid`)
+        const invalidOrder = document.querySelector('#invalid-order');
+        invalidOrder.innerHTML = invalidMessage;
+        invalidOrder.classList.remove("d-none");
+        // invalidOrder.classList.add("d-block");
+    }
 
 });

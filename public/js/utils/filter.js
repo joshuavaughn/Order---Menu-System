@@ -1,8 +1,6 @@
 export function filterThis (menu, category, section, name, bundle) {
     let filteredData = [];
     
-    console.log(`filter`)
-
     //checks for category
     if (category != '' && category != 'Everything') {
         console.log(`category`)

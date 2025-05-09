@@ -28,6 +28,18 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     const review = await fetchReview(filteredData[0].id);
 
+    let orderArray = [[], []]; // [0] = light, [1] = heavy
+
+    const selectedFood = [filteredData[0].id, 1];
+
+    if (filteredData[0].section == "light") {
+      orderArray[0].push(selectedFood);
+    } else {
+      orderArray[1].push(selectedFood);
+    }
+
+    sessionStorage.setItem("orderArray", JSON.stringify(orderArray));
+
     const reviews = document.querySelector("#reviews");
 
     review.forEach((data) => {
