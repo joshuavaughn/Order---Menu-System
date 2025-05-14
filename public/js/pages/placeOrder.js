@@ -50,7 +50,7 @@ placeOrder.addEventListener("click", () => {
 
     if (validOrder == true) {
         console.log(`valid order`);
-        // window.location.href = `checkout.html`;
+        window.location.href = `checkout.html`;
     } else {
         console.log(`invalid`)
         const invalidOrder = document.querySelector('#invalid-order');

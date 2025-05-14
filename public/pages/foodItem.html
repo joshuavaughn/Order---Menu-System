@@ -12,8 +12,8 @@
     <section>
         <nav class="navbar navbar-expand-lg bg-danger">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold text-wrap text-light" href="../index.html">Andys Dinakdakan &
-                    Sisig Lechon</a>
+                <a class="navbar-brand fw-bold text-wrap text-light ps-3" href="../index.html">Andys Dinakdakan & Sisig
+                    Lechon</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -21,11 +21,15 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link text-light" href="./menu.html">Menu</a>
+                            <a class="nav-link text-light" href="./menu.html?category=Everything&section=">
+                                Menu
+                            </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-light" href="https://www.facebook.com/andy.bernardo.50"
-                                target="_blank">Contact</a>
+                                target="_blank">
+                                Contact Us!
+                            </a>
                         </li>
                     </ul>
                 </div>
@@ -73,16 +77,25 @@
         <div class="row p-5" id="reviews">
             <!-- reviews -->
         </div>
-        <div class="row bg-warning p-5">
+        <div class="row bg-dark-subtle p-5">
             <h2 class="text-center">Write your review!</h2>
             <form action="/action_page.php" method="get" class="">
                 <label for="customer-name" class="form-label mt-2">Name</label>
                 <input class="form-control" list="datalistOptions" id="customer-name" placeholder="Enter Name Here">
                 <label for="review" class="form-label mt-2">Add Review</label>
-                <input class="form-control" list="datalistOptions" id="customer-review" placeholder="Place Your Review Here">                
-                <label for="customer-rating" class="form-label mt-2">Star Rating</label>
-                <input class="form-control" list="datalistOptions" id="customer-rating" placeholder="Include your rating from 5 start to 1 star">
-                <button class="btn btn-primary mt-3" type="submit">Submit form</button>
+                <input class="form-control" list="datalistOptions" id="customer-review"
+                    placeholder="Place Your Review Here">
+                <label for="star" class="form-label mt-2">Star Rating</label>
+                <select type="text" class="form-select" id="star" required>
+                    <option selected disabled value="">Enter number of stars</option>
+                    <!-- add cities -->
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                <button class="btn btn-danger mt-3" type="submit">Submit form</button>
             </form>
         </div>
     </section>

@@ -11,5 +11,4 @@ export async function fetchJson () {
         image: row[6],
         id: parseInt(row[0], 10) - 1
     }));
-  }
-  
+}
